@@ -1,0 +1,4 @@
+{
+        "go.gopath": "${workspaceFolder}:${workspaceFolder}/vendor",
+        "go.toolsGopath": "${workspaceFolder}/tools"
+}
