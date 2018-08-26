@@ -15,30 +15,30 @@ import (
 	"golang.org/x/sync/errgroup"
 )
 
-// PackageUpdate represent a package update information
-type PackageUpdate struct {
-	Name, InstalledVersion, LatestVersion string
+// PackageStatus represent an AUR package status
+type PackageStatus struct {
+	PkgName, InstalledVersion, LatestVersion string
 }
 
-// GetPackageUpdates return a list of package update
-func GetPackageUpdates(ctx context.Context) ([]PackageUpdate, error) {
-	pkgNames, err := getInstalledPackageNames(ctx)
+// GetPackageStatus return a list of AUR package status
+func GetPackageStatus(ctx context.Context) ([]PackageStatus, error) {
+	pkgNames, err := getInstalledPkgNames(ctx)
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to get installed AUR package names")
 	}
 
-	installedPkgs, err := getInstalledPackages(ctx, pkgNames)
+	installedPkgs, err := getInstalledPkgs(ctx, pkgNames)
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to get installed AUR package info")
 	}
 
-	latestPkgs, err := getLatestPackages(ctx, pkgNames)
+	latestPkgs, err := getLatestPkgs(ctx, pkgNames)
 	if err != nil {
 		return nil, errors.Wrap(err, "failed to get latest AUR package info")
 	}
-	result := make([]PackageUpdate, 0)
+	result := make([]PackageStatus, 0)
 	for _, name := range pkgNames {
-		update := PackageUpdate{Name: name}
+		update := PackageStatus{PkgName: name}
 		if installedPkg, found := filterByName(installedPkgs, name); found {
 			update.InstalledVersion = installedPkg.Version
 		}
@@ -65,7 +65,7 @@ type aurPackage struct {
 	Name, Version string
 }
 
-func getLatestPackages(ctx context.Context, pkgNames []string) ([]aurPackage, error) {
+func getLatestPkgs(ctx context.Context, pkgNames []string) ([]aurPackage, error) {
 	url := "https://aur.archlinux.org/rpc/?v=5&type=info"
 	for _, name := range pkgNames {
 		url = fmt.Sprintf("%s&arg[]=%s", url, name)
@@ -111,7 +111,7 @@ type webRPCResult struct {
 	Error string `json:"error"`
 }
 
-func getInstalledPackages(ctx context.Context, pkgNames []string) ([]aurPackage, error) {
+func getInstalledPkgs(ctx context.Context, pkgNames []string) ([]aurPackage, error) {
 	result := make([]aurPackage, len(pkgNames))
 	g, ctx := errgroup.WithContext(ctx)
 	for i, pkg := range pkgNames {
@@ -133,7 +133,7 @@ func getInstalledPackages(ctx context.Context, pkgNames []string) ([]aurPackage,
 	return result, nil
 }
 
-func getInstalledPackageNames(ctx context.Context) ([]string, error) {
+func getInstalledPkgNames(ctx context.Context) ([]string, error) {
 	cmd := exec.CommandContext(ctx, "pacman", "-Qqm")
 	data, err := cmd.CombinedOutput()
 	if err != nil {
