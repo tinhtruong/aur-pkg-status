@@ -5,7 +5,7 @@ import (
 	"flag"
 	"fmt"
 
-	"bitbucket.org/tinhtruong/aur-pkg-status/aur"
+	"github.com/tinhtruong/aur-pkg-status/aur"
 )
 
 var status string
