@@ -1,7 +1,7 @@
 # AUR Package Status #
 
 A small command-line application to check for AUR package status installed on your machine.
-This is only useful for ArchLinux (and derived distro)
+This is only useful for ArchLinux (and derived distros).
 
 ### Installation ###
 
@@ -12,8 +12,6 @@ This is only useful for ArchLinux (and derived distro)
     │  Package Name                 │  Installed Version  │  Latest Version  │
     ├───────────────────────────────┼─────────────────────┼──────────────────┤
     │  brave-bin                    │  0.19.48-1          │  0.23.73-1       │
-    │  goland                       │  2018.2.1-1         │  2018.2.2-1      │
-    │  goland-jre                   │  2018.2.1-1         │  2018.2.2-1      │
     │  google-cloud-sdk             │  175.0.0-1          │  213.0.0-1       │
     │  insomnia                     │  5.9.6-1            │  6.0.2-1         │
     │  jdk                          │  9.0.1-1            │  10.0.2-1        │
