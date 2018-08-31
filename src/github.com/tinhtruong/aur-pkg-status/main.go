@@ -24,10 +24,13 @@ func main() {
 	}
 	updates = filterByStatus(updates, status)
 	fmt.Printf("┌───────────────────────────────┬─────────────────────┬──────────────────┐\n")
-	fmt.Printf("│  Package Name                 │  Installed Version  │  Latest Version  │\n")
+	fmt.Printf("│ Package Name                  │ Installed Version   │ Latest Version   │\n")
 	fmt.Printf("├───────────────────────────────┼─────────────────────┼──────────────────┤\n")
 	for _, update := range updates {
-		fmt.Printf("│  %-29s│  %-19s│  %-16s│\n", update.PkgName, update.InstalledVersion, update.LatestVersion)
+		if update.LatestVersion == "" {
+			update.LatestVersion = "Removed from AUR"
+		}
+		fmt.Printf("│ %-29s │ %-19s │ %-16s │\n", update.PkgName, update.InstalledVersion, update.LatestVersion)
 	}
 	fmt.Printf("└───────────────────────────────┴─────────────────────┴──────────────────┘\n")
 }
