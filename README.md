@@ -5,7 +5,7 @@ This is only useful for ArchLinux (and derived distros).
 
 ### Installation ###
 
-* Coming soon!
+* `yaour -S aur-pkg-status`!
 
 ### Sample output ###
     ┌───────────────────────────────┬─────────────────────┬──────────────────┐
