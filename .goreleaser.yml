@@ -8,8 +8,7 @@ builds:
   - 386
   - amd64
 archive:
-  replacements:
-    linux: Linux
+  replacements:    
     386: i686
     amd64: x86_64
   files:
