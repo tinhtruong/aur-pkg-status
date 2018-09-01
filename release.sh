@@ -9,8 +9,8 @@ function push_release() {
     git tag -a $1 -m "Version $1"
     echo "Push tag $1 to origin"
     git push origin $1        
-    echo "Create release $1 in Github"
-    goreleaser
+    echo "Create release $1 in Github"    
+    goreleaser --rm-dist
 }
 
 cmd="status"
