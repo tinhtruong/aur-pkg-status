@@ -15,16 +15,16 @@ This is only useful for ArchLinux (and derived distros).
   * `./build.sh`
   * The binary is generated at `src/github.com/tinhtruong/aur-pkg-status/aur-pkg-status`
 
+### Usage ###
+`aur-pkg-status -status=<status>`
+
+Status can be `updated`, `removed` or `all`. Default to `updated` when status option is not specified
+
 ### Sample output ###
-    ┌───────────────────────────────┬─────────────────────┬──────────────────┐
-    │  Package Name                 │  Installed Version  │  Latest Version  │
-    ├───────────────────────────────┼─────────────────────┼──────────────────┤
-    │  brave-bin                    │  0.19.48-1          │  0.23.73-1       │
-    │  google-cloud-sdk             │  175.0.0-1          │  213.0.0-1       │
-    │  insomnia                     │  5.9.6-1            │  6.0.2-1         │
-    │  jdk                          │  9.0.1-1            │  10.0.2-1        │
-    │  pyenv                        │  1.2.2-1            │  1.2.7-1         │
-    │  xcursor-openzone             │  1.2.5-2            │  1.2.6-2         │
-    │  xfwm-axiom-theme             │  1-2                │  1-4             │
-    │  zuki-themes                  │  3.24.2-1           │  3.26.1-1        │
-    └───────────────────────────────┴─────────────────────┴──────────────────┘
+`aur-pkg-status -status=all`
+| Package Name   	| Installed Version  	| Latest Version  	|
+|---	|---	|---	|
+| brave-bin  	| 0.19.48-1  	| 0.23.73-1  	|
+| pcmciautils  	| 018-7  	| Removed from AUR  	|
+| visual-studio-code-bin  	| 1.26.1-2  	| 1.26.1-2  	|
+
