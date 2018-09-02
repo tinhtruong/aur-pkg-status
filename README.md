@@ -21,7 +21,9 @@ This is only useful for ArchLinux (and derived distros).
 Status can be `updated`, `removed` or `all`. Default to `updated` when status option is not specified
 
 ### Sample output ###
+
 `aur-pkg-status -status=all`
+
 | Package Name   	| Installed Version  	| Latest Version  	|
 |---	|---	|---	|
 | brave-bin  	| 0.19.48-1  	| 0.23.73-1  	|
