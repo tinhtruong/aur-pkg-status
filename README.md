@@ -5,7 +5,7 @@ This is only useful for ArchLinux (and derived distros).
 
 ### Installation ###
 
-* `yaour -S aur-pkg-status`
+* `yay -S aur-pkg-status --aur`
 * Or use your preferred AUR helper script
 
 ### Build from source ###
