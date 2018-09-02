@@ -11,6 +11,7 @@ This is only useful for ArchLinux (and derived distros).
 ### Build from source ###
 * Don't trust the pre-built binary? You can build it from the source as following:
   * Clone the repo: `git clone git@github.com:tinhtruong/aur-pkg-status.git`
+  * Make sure you have Go install.
   * `cd aur-pkg-status`
   * `./build.sh`
   * The binary is generated at `src/github.com/tinhtruong/aur-pkg-status/aur-pkg-status`
